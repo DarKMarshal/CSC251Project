@@ -13,3 +13,6 @@ out/production/CSC251Project/Policy.class
 out/production/CSC251Project/Project_Sean_Kelly.class
 out/production/CSC251Project/README.md
 CSC251Project.iml
+/.idea/.gitignore
+/out/production/CSC251Project/.gitignore
+/out/production/CSC251Project/.idea/.gitignore
