@@ -1,2 +1,15 @@
 
 .idea/vcs.xml
+.DS_Store
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+out/production/CSC251Project/.gitattributes
+out/production/CSC251Project/.idea/misc.xml
+out/production/CSC251Project/.idea/modules.xml
+out/production/CSC251Project/.idea/uiDesigner.xml
+out/production/CSC251Project/CSC251Project.iml
+out/production/CSC251Project/Policy.class
+out/production/CSC251Project/Project_Sean_Kelly.class
+out/production/CSC251Project/README.md
+CSC251Project.iml
