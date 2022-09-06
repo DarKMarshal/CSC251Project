@@ -1,4 +1,4 @@
-public class policy {
+public class Policy {
 
     private int policyNumber;
     private String providerName;
@@ -116,14 +116,14 @@ public class policy {
 
     public double getPolicyHolderBMI()
     {
-        return (policyHolderWeight / (policyHolderHeight * policyHolderHeight));
+        return ((policyHolderWeight * 703) / (policyHolderHeight * policyHolderHeight));
     }
 
     public double getInsurancePrice()
     {
         if (policyHolderAge > 50)
         {
-            if (policyHolderSmokingStatus.equals("Yes"))
+            if (policyHolderSmokingStatus.equals("smoker"))
             {
                 if (getPolicyHolderBMI() > 35)
                     return BASE_INSURANCE_PRICE + 75 + 100 + ((getPolicyHolderBMI() - 35) * 20);
@@ -151,6 +151,7 @@ public class policy {
                     return BASE_INSURANCE_PRICE;
             }
         }
+        return 0;
     }
 
 }
