@@ -7,43 +7,43 @@ public class Project_Sean_Kelly {
         Policy policy = new Policy();
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Please enter the policy number: ");
+        System.out.print("Please enter the policy number: ");
         policy.setPolicyNumber(keyboard.nextInt());
-
-        System.out.println("Please enter the provider name: ");
-        policy.setProviderName(keyboard.next());
 
         keyboard.nextLine();
 
-        System.out.println("Please enter the policy holder's first name: ");
+        System.out.print("Please enter the provider name: ");
+        policy.setProviderName(keyboard.nextLine());
+
+        System.out.print("Please enter the policyholder's first name: ");
         policy.setPolicyHolderFirstName(keyboard.nextLine());
 
-        System.out.println("Please enter the policy holder's last name: ");
+        System.out.print("Please enter the policyholder's last name: ");
         policy.setPolicyHolderLastName(keyboard.nextLine());
 
-        System.out.println("Please enter the policy holder's age: ");
+        System.out.print("Please enter the policyholder's age: ");
         policy.setPolicyHolderAge(keyboard.nextInt());
 
         keyboard.nextLine();
 
-        System.out.println("Please enter the policy holder's smoking status (smoker/non-smoker) : ");
+        System.out.print("Please enter the policyholder's smoking status (smoker/non-smoker) : ");
         policy.setPolicyHolderSmokingStatus(keyboard.nextLine());
 
-        System.out.println("Please enter the policy holder's height: ");
+        System.out.print("Please enter the policyholder's height: ");
         policy.setPolicyHolderHeight(keyboard.nextDouble());
 
-        System.out.println("Please enter the policy holder's weight: ");
+        System.out.print("Please enter the policyholder's weight: ");
         policy.setPolicyHolderWeight(keyboard.nextDouble());
 
-        System.out.println("Policy Number: " + policy.getPolicyNumber());
+        System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
         System.out.println("Provider Name: " + policy.getProviderName());
-        System.out.println("Policy Holder's First Name: " + policy.getPolicyHolderFirstName());
-        System.out.println("Policy Holder's Last Name: " + policy.getPolicyHolderLastName());
-        System.out.println("Policy Holder's Age: " + policy.getPolicyHolderAge());
-        System.out.println("Policy Holder's Smoking Status: " + policy.getPolicyHolderSmokingStatus());
-        System.out.println("Policy Holder's Height: " + policy.getPolicyHolderHeight());
-        System.out.println("Policy Holder's Weight: " + policy.getPolicyHolderWeight());
-        System.out.println("Policy Holder's BMI: " + policy.getPolicyHolderBMI());
-        System.out.println("Policy Price: " + policy.getInsurancePrice());
+        System.out.println("Policyholder's First Name: " + policy.getPolicyHolderFirstName());
+        System.out.println("Policyholder's Last Name: " + policy.getPolicyHolderLastName());
+        System.out.println("Policyholder's Age: " + policy.getPolicyHolderAge());
+        System.out.println("Policyholder's Smoking Status: " + policy.getPolicyHolderSmokingStatus());
+        System.out.println("Policyholder's Height: " + policy.getPolicyHolderHeight() + " inches");
+        System.out.println("Policyholder's Weight: " + policy.getPolicyHolderWeight() +" pounds");
+        System.out.printf("Policyholder's BMI: %.2f\n", policy.getPolicyHolderBMI());
+        System.out.printf("Policy Price: $%.2f\n", policy.getInsurancePrice());
     }
 }
