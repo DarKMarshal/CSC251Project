@@ -1,49 +1,64 @@
+import java.io.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Project_Sean_Kelly {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Policy policy = new Policy();
-        Scanner keyboard = new Scanner(System.in);
+        int policyCount = 0;
+        int repeatCount;
+        ArrayList<Policy> policyList = new ArrayList<Policy>();
+        File file = new File("PolicyInformation.txt");
+        Scanner inputFile = new Scanner(file);
 
-        System.out.print("Please enter the policy number: ");
-        policy.setPolicyNumber(keyboard.nextInt());
+        //Holder Variables
+        int policyNumber;
+        String providerName;
+        String policyHolderFirstName;
+        String policyHolderLastName;
+        int policyHolderAge;
+        String policyHolderSmokingStatus;
+        double policyHolderHeight;
+        double policyHolderWeight;
 
-        keyboard.nextLine();
 
-        System.out.print("Please enter the provider name: ");
-        policy.setProviderName(keyboard.nextLine());
+        do {
 
-        System.out.print("Please enter the policyholder's first name: ");
-        policy.setPolicyHolderFirstName(keyboard.nextLine());
+            policyNumber = inputFile.nextInt();
+            inputFile.nextLine();
+            providerName = inputFile.nextLine();
+            policyHolderFirstName = inputFile.nextLine();
+            policyHolderLastName = inputFile.nextLine();
+            policyHolderAge = inputFile.nextInt();
+            inputFile.nextLine();
+            policyHolderSmokingStatus = inputFile.nextLine();
+            policyHolderHeight = inputFile.nextDouble();
+            policyHolderWeight = inputFile.nextDouble();
+            inputFile.nextLine();
 
-        System.out.print("Please enter the policyholder's last name: ");
-        policy.setPolicyHolderLastName(keyboard.nextLine());
+            policyList.add(new Policy(policyNumber, providerName, policyHolderFirstName, policyHolderLastName, policyHolderAge, policyHolderSmokingStatus, policyHolderHeight, policyHolderWeight));
 
-        System.out.print("Please enter the policyholder's age: ");
-        policy.setPolicyHolderAge(keyboard.nextInt());
+            policyCount++;
 
-        keyboard.nextLine();
+        }while(inputFile.hasNext());
 
-        System.out.print("Please enter the policyholder's smoking status (smoker/non-smoker) : ");
-        policy.setPolicyHolderSmokingStatus(keyboard.nextLine());
+        repeatCount = policyCount;
 
-        System.out.print("Please enter the policyholder's height: ");
-        policy.setPolicyHolderHeight(keyboard.nextDouble());
+        while(repeatCount > 0){
+            System.out.println("\nPolicy Number: " + policyList.get(policyCount - repeatCount).getPolicyNumber());
+            System.out.println("Provider Name: " + policyList.get(policyCount - repeatCount).getProviderName());
+            System.out.println("Policyholder's First Name: " + policyList.get(policyCount - repeatCount).getPolicyHolderFirstName());
+            System.out.println("Policyholder's Last Name: " + policyList.get(policyCount - repeatCount).getPolicyHolderLastName());
+            System.out.println("Policyholder's Age: " + policyList.get(policyCount - repeatCount).getPolicyHolderAge());
+            System.out.println("Policyholder's Smoking Status: " + policyList.get(policyCount - repeatCount).getPolicyHolderSmokingStatus());
+            System.out.println("Policyholder's Height: " + policyList.get(policyCount - repeatCount).getPolicyHolderHeight() + " inches");
+            System.out.println("Policyholder's Weight: " + policyList.get(policyCount - repeatCount).getPolicyHolderWeight() + " pounds");
+            System.out.printf("Policyholder's BMI: %.2f\n", policyList.get(policyCount - repeatCount).getPolicyHolderBMI());
+            System.out.printf("Policy Price: $%.2f\n", policyList.get(policyCount - repeatCount).getInsurancePrice());
 
-        System.out.print("Please enter the policyholder's weight: ");
-        policy.setPolicyHolderWeight(keyboard.nextDouble());
-
-        System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
-        System.out.println("Provider Name: " + policy.getProviderName());
-        System.out.println("Policyholder's First Name: " + policy.getPolicyHolderFirstName());
-        System.out.println("Policyholder's Last Name: " + policy.getPolicyHolderLastName());
-        System.out.println("Policyholder's Age: " + policy.getPolicyHolderAge());
-        System.out.println("Policyholder's Smoking Status: " + policy.getPolicyHolderSmokingStatus());
-        System.out.println("Policyholder's Height: " + policy.getPolicyHolderHeight() + " inches");
-        System.out.println("Policyholder's Weight: " + policy.getPolicyHolderWeight() +" pounds");
-        System.out.printf("Policyholder's BMI: %.2f\n", policy.getPolicyHolderBMI());
-        System.out.printf("Policy Price: $%.2f\n", policy.getInsurancePrice());
+            repeatCount--;
+        }
+        inputFile.close();
     }
 }

@@ -13,7 +13,7 @@ public class Policy {
     /**
      * Default constructor
      */
-    public void setDefaultPolicy()
+    public Policy()
     {
         policyNumber = 0;
         providerName = "Void";
@@ -37,7 +37,7 @@ public class Policy {
      * @param policyHolderHeight User input for policyholder's height
      * @param policyHolderWeight User input for policyholder's weight
      */
-    public void setPolicy(int policyNumber, String providerName, String policyHolderFirstName, String policyHolderLastName, int policyHolderAge, String policyHolderSmokingStatus, double policyHolderHeight, double policyHolderWeight)
+    public Policy(int policyNumber, String providerName, String policyHolderFirstName, String policyHolderLastName, int policyHolderAge, String policyHolderSmokingStatus, double policyHolderHeight, double policyHolderWeight)
     {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
