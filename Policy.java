@@ -232,6 +232,8 @@ public class Policy {
             {
                 if (getPolicyHolderBMI() > 35)
                     return BASE_INSURANCE_PRICE + 75 + 100 + ((getPolicyHolderBMI() - 35) * 20);
+                else
+                    return BASE_INSURANCE_PRICE + 75 + 100;
             }
             else
             {
@@ -243,10 +245,12 @@ public class Policy {
         }
         else
         {
-            if (policyHolderSmokingStatus.equals("Yes"))
+            if (policyHolderSmokingStatus.equals("smoker"))
             {
                 if (getPolicyHolderBMI() > 35)
                     return BASE_INSURANCE_PRICE + 100 + ((getPolicyHolderBMI() - 35) * 20);
+                else
+                    return BASE_INSURANCE_PRICE + 100;
             }
             else
             {
@@ -256,7 +260,6 @@ public class Policy {
                     return BASE_INSURANCE_PRICE;
             }
         }
-        return 0;
     }
 
 }

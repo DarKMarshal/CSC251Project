@@ -8,36 +8,25 @@ public class Project_Sean_Kelly {
 
         int policyCount = 0;
         int repeatCount;
-        ArrayList<Policy> policyList = new ArrayList<Policy>();
+        ArrayList<Policy> policyList = new ArrayList<>();
         File file = new File("PolicyInformation.txt");
         Scanner inputFile = new Scanner(file);
 
-        //Holder Variables
-        int policyNumber;
-        String providerName;
-        String policyHolderFirstName;
-        String policyHolderLastName;
-        int policyHolderAge;
-        String policyHolderSmokingStatus;
-        double policyHolderHeight;
-        double policyHolderWeight;
-
-
         do {
 
-            policyNumber = inputFile.nextInt();
-            inputFile.nextLine();
-            providerName = inputFile.nextLine();
-            policyHolderFirstName = inputFile.nextLine();
-            policyHolderLastName = inputFile.nextLine();
-            policyHolderAge = inputFile.nextInt();
-            inputFile.nextLine();
-            policyHolderSmokingStatus = inputFile.nextLine();
-            policyHolderHeight = inputFile.nextDouble();
-            policyHolderWeight = inputFile.nextDouble();
-            inputFile.nextLine();
+            policyList.add(new Policy());
 
-            policyList.add(new Policy(policyNumber, providerName, policyHolderFirstName, policyHolderLastName, policyHolderAge, policyHolderSmokingStatus, policyHolderHeight, policyHolderWeight));
+            policyList.get(policyCount).setPolicyNumber(inputFile.nextInt());
+            inputFile.nextLine();
+            policyList.get(policyCount).setProviderName(inputFile.nextLine());
+            policyList.get(policyCount).setPolicyHolderFirstName(inputFile.nextLine());
+            policyList.get(policyCount).setPolicyHolderLastName(inputFile.nextLine());
+            policyList.get(policyCount).setPolicyHolderAge(inputFile.nextInt());
+            inputFile.nextLine();
+            policyList.get(policyCount).setPolicyHolderSmokingStatus(inputFile.nextLine());
+            policyList.get(policyCount).setPolicyHolderHeight(inputFile.nextDouble());
+            policyList.get(policyCount).setPolicyHolderWeight(inputFile.nextDouble());
+            inputFile.nextLine();
 
             policyCount++;
 
