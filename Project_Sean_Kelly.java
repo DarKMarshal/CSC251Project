@@ -12,6 +12,9 @@ public class Project_Sean_Kelly {
         File file = new File("PolicyInformation.txt");
         Scanner inputFile = new Scanner(file);
 
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
+
         do {
 
             policyList.add(new Policy());
@@ -27,6 +30,11 @@ public class Project_Sean_Kelly {
             policyList.get(policyCount).setPolicyHolderHeight(inputFile.nextDouble());
             policyList.get(policyCount).setPolicyHolderWeight(inputFile.nextDouble());
             inputFile.nextLine();
+
+            if (policyList.get(policyCount).getPolicyHolderSmokingStatus().equalsIgnoreCase("smoker"))
+                smokerCount++;
+            else
+                nonSmokerCount++;
 
             policyCount++;
 
@@ -48,6 +56,10 @@ public class Project_Sean_Kelly {
 
             repeatCount--;
         }
+
+        System.out.println("\nThe number of policies with a smoker is: " + smokerCount);
+        System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
+
         inputFile.close();
     }
 }
